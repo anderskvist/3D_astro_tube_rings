@@ -7,8 +7,6 @@ $spacing = 2;
 $rounding = 2;
 
 
-
-
 difference() {
     union() {
         // main structure
@@ -30,8 +28,8 @@ difference() {
     // holes for screws
     translate([$diameter/2+20,0,0]) rotate([90,0,0]) cylinder(100,3,3, true);
     translate([-$diameter/2-20,0,0]) rotate([90,0,0]) cylinder(100,3,3, true);
-    rotate([90,0,0]) cylinder(200,3,3, true);
-    rotate([90,0,0]) cylinder(155,8,8, true);
+    rotate([90,0,0]) cylinder($diameter*2,3,3, true);
+    rotate([90,0,0]) cylinder($diameter+10,8,8, true);
 
     // smooth edges inside
     translate([-$diameter/2-$spacing*0.95,3,0])  roundCorner();
@@ -57,7 +55,7 @@ difference() {
     translate([28,-13-$diameter/2,0])  rotate([0,0,0]) roundCorner();
 
     // remove one half
-    translate([0,50,0]) cube([250,100,40], true); 
+    translate([0,$diameter/2,0]) cube([$diameter*2,$diameter,$thickness*2], true);
 }
 
 module roundCorner() {
