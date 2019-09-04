@@ -17,7 +17,6 @@ difference() {
         // main structure
         cylinder($thickness,$diameter/2+10,$diameter/2+10, true);
         // mount
-        translate([0,$diameter/2+5,0]) cube([$mount_width,$mount_height,$thickness], true);
         translate([0,-$diameter/2-5,0]) cube([$mount_width,$mount_height,$thickness], true);
         // clamps
         translate([$diameter/2+$clamp_width/2,0,0]) cube([$clamp_width,$clamp_hight+$spacing,$thickness], true);
@@ -37,29 +36,20 @@ difference() {
     rotate([90,0,0]) cylinder($diameter+10,8,8, true);
 
     // smooth edges inside
-    translate([-$diameter/2-$spacing*0.95,3,0])  roundCorner();
     translate([-$diameter/2-$spacing*0.95,-3,0])  rotate([0,0,90]) roundCorner();
     translate([$diameter/2+$spacing*0.95,-3,0])  rotate([0,0,180]) roundCorner();
-    translate([$diameter/2+$spacing*0.95,3,0])  rotate([0,0,270]) roundCorner();
 
     // smooth edges clamps
     translate([28+$diameter/2,-3,0])  rotate([0,0,90]) roundCorner();
-    translate([28+$diameter/2,3,0])  rotate([0,0,0]) roundCorner();
     translate([28+$diameter/2,-8,0])  rotate([0,0,0]) roundCorner();
-    translate([28+$diameter/2,8,0])  rotate([0,0,90]) roundCorner();
-    
-    translate([-28-$diameter/2,3,0])  rotate([0,0,270]) roundCorner();
     translate([-28-$diameter/2,-3,0])  rotate([0,0,180]) roundCorner();
-    translate([-28-$diameter/2,8,0])  rotate([0,0,180]) roundCorner();
     translate([-28-$diameter/2,-8,0])  rotate([0,0,270]) roundCorner();
     
     // smooth edges mount
-    translate([$mount_width/2-$rounding,13+$diameter/2,0])  rotate([0,0,90]) roundCorner();
-    translate([-$mount_width/2+$rounding,13+$diameter/2,0])  rotate([0,0,180]) roundCorner();
     translate([-$mount_width/2+$rounding,-13-$diameter/2,0])  rotate([0,0,270]) roundCorner();
     translate([$mount_width/2-$rounding,-13-$diameter/2,0])  rotate([0,0,0]) roundCorner();
 
-    // remove one half
+    // remove unused half
     translate([0,$diameter/2,0]) cube([$diameter*2+$clamp_width*2,$diameter,$thickness*2], true);
 }
 
