@@ -54,10 +54,10 @@ difference() {
     translate([-28-$diameter/2,-8,0])  rotate([0,0,270]) roundCorner();
     
     // smooth edges mount
-    translate([28,13+$diameter/2,0])  rotate([0,0,90]) roundCorner();
-    translate([-28,13+$diameter/2,0])  rotate([0,0,180]) roundCorner();
-    translate([-28,-13-$diameter/2,0])  rotate([0,0,270]) roundCorner();
-    translate([28,-13-$diameter/2,0])  rotate([0,0,0]) roundCorner();
+    translate([$mount_width/2-$rounding,13+$diameter/2,0])  rotate([0,0,90]) roundCorner();
+    translate([-$mount_width/2+$rounding,13+$diameter/2,0])  rotate([0,0,180]) roundCorner();
+    translate([-$mount_width/2+$rounding,-13-$diameter/2,0])  rotate([0,0,270]) roundCorner();
+    translate([$mount_width/2-$rounding,-13-$diameter/2,0])  rotate([0,0,0]) roundCorner();
 
     // remove one half
     translate([0,$diameter/2,0]) cube([$diameter*2+$clamp_width*2,$diameter,$thickness*2], true);
