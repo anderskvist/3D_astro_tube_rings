@@ -5,7 +5,7 @@ $height = 30;
 $thickness = 10;
 
 $mount_width = 60;
-$mount_height = 15;
+$mount_height = 20;
 $clamp_width = 30;
 $clamp_height = 10;
 
@@ -34,7 +34,7 @@ difference() {
     translate([$diameter/2+20,0,0]) rotate([90,0,0]) cylinder(100,3,3, true);
     translate([-$diameter/2-20,0,0]) rotate([90,0,0]) cylinder(100,3,3, true);
     rotate([90,0,0]) cylinder($diameter*2,3,3, true);
-    rotate([90,0,0]) cylinder($diameter+10,8,8, true);
+    rotate([90,0,0]) cylinder($diameter+$mount_height,8,8, true);
 
     // smooth edges inside
     translate([-$diameter/2-$rounding*0.95,-$rounding-$spacing/2,0])  rotate([0,0,90]) roundCorner();
