@@ -20,8 +20,8 @@ difference() {
         // mount
         translate([0,-$diameter/2-$mount_height/2,0]) cube([$mount_width,$mount_height,$height], true);
         // clamps
-        translate([$diameter/2+$clamp_width/2,-$clamp_height/2-$spacing,0]) cube([$clamp_width,$clamp_height+$spacing,$height], true);
-        translate([-$diameter/2-$clamp_width/2,-$clamp_height/2-$spacing,0]) cube([$clamp_width,$clamp_height+$spacing,$height], true);
+        translate([$diameter/2+$clamp_width/2,-$clamp_height/2-$spacing/2,0]) cube([$clamp_width,$clamp_height,$height], true);
+        translate([-$diameter/2-$clamp_width/2,-$clamp_height/2-$spacing/2,0]) cube([$clamp_width,$clamp_height,$height], true);
     }
     // hole in the middle
     cylinder($height+2,$diameter/2,$diameter/2, true);
@@ -41,10 +41,10 @@ difference() {
     translate([$diameter/2+$spacing*0.95,-3,0])  rotate([0,0,180]) roundCorner();
 
     // smooth edges clamps
-    translate([28+$diameter/2,-3,0])  rotate([0,0,90]) roundCorner();
-    translate([28+$diameter/2,-8,0])  rotate([0,0,0]) roundCorner();
-    translate([-28-$diameter/2,-3,0])  rotate([0,0,180]) roundCorner();
-    translate([-28-$diameter/2,-8,0])  rotate([0,0,270]) roundCorner();
+    translate([28+$diameter/2,-$rounding-$spacing/2,0])  rotate([0,0,90]) roundCorner();
+    translate([28+$diameter/2,-$clamp_height+$rounding-$spacing/2,0])  rotate([0,0,0]) roundCorner();
+    translate([-28-$diameter/2,-$rounding-$spacing/2,0])  rotate([0,0,180]) roundCorner();
+    translate([-28-$diameter/2,-$clamp_height+$rounding-$spacing/2,0])  rotate([0,0,270]) roundCorner();
     
     // smooth edges mount
     translate([-$mount_width/2+$rounding,-13-$diameter/2,0])  rotate([0,0,270]) roundCorner();
