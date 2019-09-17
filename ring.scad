@@ -1,7 +1,8 @@
 $fn=100;
 
 $diameter = 145;
-$thickness = 30;
+$height = 30;
+$thickness = 10;
 
 $mount_width = 60;
 $mount_height = 20;
@@ -15,19 +16,19 @@ $rounding = 2;
 difference() {
     union() {
         // main structure
-        cylinder($thickness,$diameter/2+10,$diameter/2+10, true);
+        cylinder($height,$diameter/2+$thickness,$diameter/2+$thickness, true);
         // mount
-        translate([0,-$diameter/2-5,0]) cube([$mount_width,$mount_height,$thickness], true);
+        translate([0,-$diameter/2-5,0]) cube([$mount_width,$mount_height,$height], true);
         // clamps
-        translate([$diameter/2+$clamp_width/2,0,0]) cube([$clamp_width,$clamp_hight+$spacing,$thickness], true);
-        translate([-$diameter/2-$clamp_width/2,0,0]) cube([$clamp_width,$clamp_hight+$spacing,$thickness], true);
+        translate([$diameter/2+$clamp_width/2,0,0]) cube([$clamp_width,$clamp_hight+$spacing,$height], true);
+        translate([-$diameter/2-$clamp_width/2,0,0]) cube([$clamp_width,$clamp_hight+$spacing,$height], true);
     }
     // hole in the middle
-    cylinder($thickness+2,$diameter/2,$diameter/2, true);
+    cylinder($height+2,$diameter/2,$diameter/2, true);
     
     // space for clamping ring together
-    translate([$diameter/2+$clamp_width/2,0,0]) cube([$clamp_width*2,$spacing,$thickness+2], true);
-    translate([-$diameter/2-$clamp_width/2,0,0]) cube([$clamp_width*2,$spacing,$thickness+2], true);
+    translate([$diameter/2+$clamp_width/2,0,0]) cube([$clamp_width*2,$spacing,$height+2], true);
+    translate([-$diameter/2-$clamp_width/2,0,0]) cube([$clamp_width*2,$spacing,$height+2], true);
     
     // holes for screws
     translate([$diameter/2+20,0,0]) rotate([90,0,0]) cylinder(100,3,3, true);
@@ -50,13 +51,13 @@ difference() {
     translate([$mount_width/2-$rounding,-13-$diameter/2,0])  rotate([0,0,0]) roundCorner();
 
     // remove unused half
-    translate([0,$diameter/2,0]) cube([$diameter*2+$clamp_width*2,$diameter,$thickness*2], true);
+    translate([0,$diameter/2,0]) cube([$diameter*2+$clamp_width*2,$diameter,$height*2], true);
 }
 
 module roundCorner() {
     difference() {
-        translate([$rounding,-$rounding,0]) cube([$rounding*2,$rounding*2,$thickness+2], true);
-        cylinder($thickness+4,$rounding,$rounding, true);
+        translate([$rounding,-$rounding,0]) cube([$rounding*2,$rounding*2,$height+2], true);
+        cylinder($height+4,$rounding,$rounding, true);
     }
 }
 
