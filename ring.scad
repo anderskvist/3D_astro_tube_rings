@@ -7,7 +7,7 @@ $thickness = 10;
 $mount_width = 60;
 $mount_height = 15;
 $clamp_width = 30;
-$clamp_hight = 20;
+$clamp_height = 10;
 
 $spacing = 2;
 $rounding = 2;
@@ -20,8 +20,8 @@ difference() {
         // mount
         translate([0,-$diameter/2-$mount_height/2,0]) cube([$mount_width,$mount_height,$height], true);
         // clamps
-        translate([$diameter/2+$clamp_width/2,0,0]) cube([$clamp_width,$clamp_hight+$spacing,$height], true);
-        translate([-$diameter/2-$clamp_width/2,0,0]) cube([$clamp_width,$clamp_hight+$spacing,$height], true);
+        translate([$diameter/2+$clamp_width/2,-$clamp_height/2-$spacing,0]) cube([$clamp_width,$clamp_height+$spacing,$height], true);
+        translate([-$diameter/2-$clamp_width/2,-$clamp_height/2-$spacing,0]) cube([$clamp_width,$clamp_height+$spacing,$height], true);
     }
     // hole in the middle
     cylinder($height+2,$diameter/2,$diameter/2, true);
