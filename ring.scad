@@ -1,6 +1,6 @@
 $fn=100;
 
-$diameter = 145;
+$diameter = 140;
 $height = 30;
 $thickness = 10;
 
