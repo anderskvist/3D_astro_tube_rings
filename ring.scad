@@ -18,7 +18,7 @@ difference() {
         // main structure
         cylinder($height,$diameter/2+$thickness,$diameter/2+$thickness, true);
         // mount
-        #translate([0,-$diameter/2-$mount_height/2,0]) cube([$mount_width,$mount_height,$height], true);
+        translate([0,-$diameter/2-$mount_height/2,0]) cube([$mount_width,$mount_height,$height], true);
         // clamps
         translate([$diameter/2+$clamp_width/2,0,0]) cube([$clamp_width,$clamp_hight+$spacing,$height], true);
         translate([-$diameter/2-$clamp_width/2,0,0]) cube([$clamp_width,$clamp_hight+$spacing,$height], true);
