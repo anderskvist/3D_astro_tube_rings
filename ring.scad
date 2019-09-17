@@ -41,10 +41,10 @@ difference() {
     translate([$diameter/2+$spacing*0.95,-3,0])  rotate([0,0,180]) roundCorner();
 
     // smooth edges clamps
-    translate([28+$diameter/2,-$rounding-$spacing/2,0])  rotate([0,0,90]) roundCorner();
-    translate([28+$diameter/2,-$clamp_height+$rounding-$spacing/2,0])  rotate([0,0,0]) roundCorner();
-    translate([-28-$diameter/2,-$rounding-$spacing/2,0])  rotate([0,0,180]) roundCorner();
-    translate([-28-$diameter/2,-$clamp_height+$rounding-$spacing/2,0])  rotate([0,0,270]) roundCorner();
+    translate([$clamp_width-$rounding+$diameter/2,-$rounding-$spacing/2,0])  rotate([0,0,90]) roundCorner();
+    translate([$clamp_width-$rounding+$diameter/2,-$clamp_height+$rounding-$spacing/2,0])  rotate([0,0,0]) roundCorner();
+    translate([-$clamp_width+$rounding-$diameter/2,-$rounding-$spacing/2,0])  rotate([0,0,180]) roundCorner();
+    translate([-$clamp_width+$rounding-$diameter/2,-$clamp_height+$rounding-$spacing/2,0])  rotate([0,0,270]) roundCorner();
     
     // smooth edges mount
     translate([-$mount_width/2+$rounding,-13-$diameter/2,0])  rotate([0,0,270]) roundCorner();
