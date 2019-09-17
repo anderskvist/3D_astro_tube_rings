@@ -37,8 +37,8 @@ difference() {
     rotate([90,0,0]) cylinder($diameter+10,8,8, true);
 
     // smooth edges inside
-    translate([-$diameter/2-$spacing*0.95,-3,0])  rotate([0,0,90]) roundCorner();
-    translate([$diameter/2+$spacing*0.95,-3,0])  rotate([0,0,180]) roundCorner();
+    translate([-$diameter/2-$rounding*0.95,-$rounding-$spacing/2,0])  rotate([0,0,90]) roundCorner();
+    translate([$diameter/2+$rounding*0.95,-$rounding-$spacing/2,0])  rotate([0,0,180]) roundCorner();
 
     // smooth edges clamps
     translate([$clamp_width-$rounding+$diameter/2,-$rounding-$spacing/2,0])  rotate([0,0,90]) roundCorner();
